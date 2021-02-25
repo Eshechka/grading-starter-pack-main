@@ -1,0 +1,8 @@
+/* {
+    syntax: "postcss-scss",
+    plugins: {
+        "postcss-nested": {},
+        "postcss-import": {},
+        "postcss-mixins": {}
+    }
+} */
