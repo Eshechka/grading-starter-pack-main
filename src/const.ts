@@ -1,5 +1,6 @@
 export enum APIRoute {
   Quests = '/quests',
+  Order = '/orders',
 }
 
 export enum Levels {

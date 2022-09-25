@@ -27,10 +27,6 @@ const DetailedQuest = (): JSX.Element => {
   useEffect(() => {
     dispatch(fetchQuest({id}));
   }, [])
-  useEffect(() => {
-    console.log('quest', quest);
-
-  }, [quest])
 
   return (
     <MainLayout>
@@ -74,7 +70,7 @@ const DetailedQuest = (): JSX.Element => {
           </S.PageDescription>
         </S.PageContentWrapper>
 
-        {isBookingModalOpened && <BookingModal />}
+        {isBookingModalOpened && <BookingModal onClose={() => {setIsBookingModalOpened(false)}}/>}
       </S.Main>}
     </MainLayout>
   );

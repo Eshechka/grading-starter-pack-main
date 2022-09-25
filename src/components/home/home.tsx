@@ -19,11 +19,6 @@ const HomePage = (): JSX.Element => {
     dispatch(fetchQuests());
   }, [])
 
-  useEffect(() => {
-    console.log('quests', quests);
-
-  }, [quests])
-
   return (
   <MainLayout>
     <S.Main forwardedAs="main">

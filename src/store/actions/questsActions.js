@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchQuest, fetchQuests } from "store/api-actions";
+import { bookQuest, fetchQuest, fetchQuests } from "store/api-actions";
 
 const questSlice = createSlice({
   name: "quest",
@@ -7,9 +7,14 @@ const questSlice = createSlice({
     quest: null,
     quests: null,
     loading: false,
+    book: null,
   },
 
-  reducers: {},
+  reducers: {
+    clearBook: (state) => {
+      state.book = null;
+    },
+  },
 
   extraReducers: (builder) => {
     builder
@@ -32,9 +37,16 @@ const questSlice = createSlice({
       })
       .addCase(fetchQuest.rejected, (state) => {
         state.loading = false;
+      })
+      .addCase(bookQuest.fulfilled, (state, { payload }) => {
+        state.book = true;
+      })
+      .addCase(bookQuest.rejected, (state) => {
+        state.book = false;
       });
-
   },
 });
+
+export const { clearBook } = questSlice.actions;
 
 export default questSlice.reducer;

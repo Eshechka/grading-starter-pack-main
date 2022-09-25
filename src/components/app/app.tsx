@@ -10,6 +10,7 @@ import Contacts from '../contacts/contacts';
 import NotFound from '../notfound/notfound';
 import { appTheme } from './common';
 import * as S from './app.styled';
+import InProgress from 'components/in-progress/in-progress';
 
 
 const App = (): JSX.Element => (
@@ -21,13 +22,13 @@ const App = (): JSX.Element => (
           <DetailedQuest />
         </Route>
         <Route exact path="/newbie">
-          <NotFound />
+          <InProgress />
         </Route>
         <Route exact path="/reviews">
-          <NotFound />
+          <InProgress />
         </Route>
         <Route exact path="/promotions">
-          <NotFound />
+          <InProgress />
         </Route>
         <Route exact path="/contacts">
           <Contacts />
