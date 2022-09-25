@@ -17,7 +17,7 @@ const App = (): JSX.Element => (
     <S.GlobalStyle />
     <Router>
       <Switch>
-        <Route exact path="/quest">
+        <Route exact path="/quest/:id">
           <DetailedQuest />
         </Route>
         <Route exact path="/newbie">

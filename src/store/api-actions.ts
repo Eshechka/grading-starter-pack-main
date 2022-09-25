@@ -10,9 +10,21 @@ export const fetchQuests = createAsyncThunk<Quest[], undefined, {
   state: State,
   extra: AxiosInstance
 }>(
-  'quests/fetch',
+  'quests/fetchAll',
   async (_arg, { dispatch, extra: api }) => {
     const { data } = await api.get<Quest[]>(APIRoute.Quests);
+    return data;
+  },
+);
+
+export const fetchQuest = createAsyncThunk<Quest, { id: string }, {
+  dispatch: AppDispatch,
+  state: State,
+  extra: AxiosInstance
+}>(
+  'quests/fetchOne',
+  async ({ id }, { dispatch, extra: api }) => {
+    const { data } = await api.get<Quest>(`${APIRoute.Quests}/${id}`);
     return data;
   },
 );

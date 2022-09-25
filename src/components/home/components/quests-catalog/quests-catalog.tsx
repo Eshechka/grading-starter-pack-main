@@ -9,7 +9,7 @@ import { ReactComponent as IconPuzzle } from 'assets/img/icon-puzzle.svg';
 import * as S from './quests-catalog.styled';
 import { useState } from 'react';
 import { Quest } from 'types/quest';
-import { Level } from 'const';
+import { Genre, Genres, Level } from 'const';
 
 type questsCatalogProps = {
   quests: Quest[],
@@ -38,42 +38,42 @@ const QuestsCatalog = (props: questsCatalogProps): JSX.Element => {
         <S.TabItem>
           <S.TabBtn isActive={isActive === 'all'} onClick={() => tabClickHandle('all')}>
             <IconAllQuests />
-            <S.TabTitle>Все квесты</S.TabTitle>
+            <S.TabTitle>{Genre[Genres.all]}</S.TabTitle>
           </S.TabBtn>
         </S.TabItem>
 
         <S.TabItem>
           <S.TabBtn isActive={isActive === 'adventure'} onClick={() => tabClickHandle('adventure')}>
             <IconAdventures />
-            <S.TabTitle>Приключения</S.TabTitle>
+            <S.TabTitle>{Genre[Genres.adventure]}</S.TabTitle>
           </S.TabBtn>
         </S.TabItem>
 
         <S.TabItem>
           <S.TabBtn isActive={isActive === 'horror'} onClick={() => tabClickHandle('horror')}>
             <IconHorrors />
-            <S.TabTitle>Ужасы</S.TabTitle>
+            <S.TabTitle>{Genre[Genres.horror]}</S.TabTitle>
           </S.TabBtn>
         </S.TabItem>
 
         <S.TabItem>
           <S.TabBtn isActive={isActive === 'mystic'} onClick={() => tabClickHandle('mystic')}>
             <IconMystic />
-            <S.TabTitle>Мистика</S.TabTitle>
+            <S.TabTitle>{Genre[Genres.mystic]}</S.TabTitle>
           </S.TabBtn>
         </S.TabItem>
 
         <S.TabItem>
           <S.TabBtn isActive={isActive === 'detective'} onClick={() => tabClickHandle('detective')}>
             <IconDetective />
-            <S.TabTitle>Детектив</S.TabTitle>
+            <S.TabTitle>{Genre[Genres.detective]}</S.TabTitle>
           </S.TabBtn>
         </S.TabItem>
 
         <S.TabItem>
           <S.TabBtn isActive={isActive === 'scifi'} onClick={() => tabClickHandle('scifi')}>
             <IconScifi />
-            <S.TabTitle>Sci-fi</S.TabTitle>
+            <S.TabTitle>{Genre[Genres.scifi]}</S.TabTitle>
           </S.TabBtn>
         </S.TabItem>
       </S.Tabs>
@@ -81,7 +81,7 @@ const QuestsCatalog = (props: questsCatalogProps): JSX.Element => {
       <S.QuestsList>
         {filteredList && filteredList.map((item) => (
             <S.QuestItem key={item.id}>
-              <S.QuestItemLink to="/quest">
+              <S.QuestItemLink to={`/quest/${item.id}`}>
                 <S.Quest>
                   <S.QuestImage
                     src={item.previewImg}
@@ -96,7 +96,7 @@ const QuestsCatalog = (props: questsCatalogProps): JSX.Element => {
                     <S.QuestFeatures>
                       <S.QuestFeatureItem>
                         <IconPerson />
-                        {item.peopleCount[0]} - {item.peopleCount[1]} чел
+                        {item.peopleCount[0]}-{item.peopleCount[1]} чел
                       </S.QuestFeatureItem>
                       <S.QuestFeatureItem>
                         <IconPuzzle />

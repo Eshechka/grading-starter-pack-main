@@ -3,7 +3,7 @@ import axios, { AxiosError, AxiosInstance } from 'axios';
 import questSlice from '../store/actions/questsActions.js';
 
 
-const BACKEND_URL = 'http://localhost:3001';
+export const BACKEND_URL = 'http://localhost:3001';
 const REQUEST_TIMEOUT = 5000;
 
 const createAPI = (): AxiosInstance => {

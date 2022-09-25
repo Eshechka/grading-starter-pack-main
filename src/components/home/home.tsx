@@ -31,7 +31,7 @@ const HomePage = (): JSX.Element => {
         <PageTitle>Выберите тематику</PageTitle>
         <PageSubtext>квесты в Санкт-Петербурге</PageSubtext>
       </PageHeading>
-      { quests && <QuestsCatalog quests={quests}/> }
+      { !loading && quests && <QuestsCatalog quests={quests}/> }
     </S.Main>
   </MainLayout>
 )};
